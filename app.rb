@@ -1,6 +1,9 @@
 # app.rb
 require 'sinatra'
 require 'line/bot'
+require 'dotenv'
+
+Dotenv.load
 
 def client
   @client ||= Line::Bot::Client.new { |config|
