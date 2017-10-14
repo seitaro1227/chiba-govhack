@@ -54,8 +54,8 @@ post '/callback' do
           when Line::Bot::Event::MessageType::Text
             question = event.message['text']
             answers = qna_maker(question)['answers']
-            answer = answers.first['answers']
-
+            answer = answers[0]['answer']
+            answer.gsub!('&amp;', '&')
             message = {
                 type: 'text',
                 text: answer
